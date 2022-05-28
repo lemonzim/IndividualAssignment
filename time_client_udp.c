@@ -16,7 +16,7 @@ int main(int argc , char *argv[])
 	{
 		printf("Could not create socket");
 	}
-		
+	//struct information	
 	server.sin_addr.s_addr = inet_addr("192.168.56.105");
 	server.sin_family = AF_INET;
 	server.sin_port = htons(37);
@@ -31,14 +31,17 @@ int main(int argc , char *argv[])
 		return 1;
 	}
 	puts("Data Send\n");
-	//Receive a reply from the server
 	c = sizeof(server);
+	//Reply dari server
 	if(recvfrom(socket_desc, server_reply, sizeof(server_reply), 0, (struct sockaddr*)&server, &c) < 0)
 	{
 		puts("recv failed");
 	}
+	//Terangkan pada client apa maklumat yang dapat
 	puts("The number of seconds since Epoch time (00:00 (midnight) 1 January, 1900 GMT) in Binary");
+	//puts reply
 	puts(server_reply);
+	//tutup soket
 close(socket_desc);
 	return 0;
 }
