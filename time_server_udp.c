@@ -38,7 +38,6 @@ int main(int argc , char *argv[])
 	while(recvfrom(socket_desc,client_reply, sizeof(client_reply), 0, ( struct sockaddr *)&client, &c))
 	{
 		puts("Reply received\n");
-		printf("TEST");
 		//Reply to the client
 		time_t result = time(NULL);
 		char *mes1="Seconds from Epoch in Binary before flipped: ";
