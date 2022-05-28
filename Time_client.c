@@ -17,7 +17,7 @@ int main(int argc , char *argv[])
 		printf("Could not create socket");
 	}
 	//struct information
-	server.sin_addr.s_addr = inet_addr("192.168.56.105");
+	server.sin_addr.s_addr = inet_addr("192.168.56.105");//bind to this ip
 	server.sin_family = AF_INET;
 	server.sin_port = htons(37);//port37
 
