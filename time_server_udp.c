@@ -40,24 +40,21 @@ int main(int argc , char *argv[])
 		puts("Reply received\n");
 		//Reply to the client
 		time_t result = time(NULL);
-		char *mes1="Seconds from Epoch in Binary before flipped: ";
+		char mes1[100];
 		char mes2[100];
-		char *mes3="\nSeconds from Epoch in Binary: ";
-		char mes4[100];
-		char *mes5="\nActual seconds from Epoch: ";
-		char mes6[50];
 		int a[100];
 		int buf_result=result;
 		for(int i=0;buf_result>0;i++)    
 			{    
 			a[i]=buf_result%2;
 			buf_result=buf_result/2;
-			sprintf(&mes2[i], "%d", a[i]);
+			//change the int to string
+			sprintf(&mes1[i], "%d", a[i]);
 			}
-		for(int i=0;i<=strlen(mes2)-1;i++)
+		for(int i=0;i<=strlen(mes1)-1;i++)
 		{
-			//replace first value of mes 4 with the last value of mes2, 2nd one with the last 2nd,and on....
-			mes4[i]=mes2[strlen(mes2)-1-i];
+			//replace first value of mes 2 with the last value of mes1, 2nd one with the last 2nd,and on....
+			mes2[i]=mes1[strlen(mes1)-1-i];
 		}
 		sendto(socket_desc, mes4, strlen(mes1)+1, MSG_CONFIRM, (struct sockaddr*)&client, sizeof(client)); 
 	}
